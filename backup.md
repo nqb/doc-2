@@ -54,16 +54,28 @@ For more informations and options about backup creation, consult `yunohost backu
 
 #### Apps-specific configuration
 
+<<<<<<< HEAD
 Some apps such as Nextcloud may be related to a large quantity of data which are not backuped by default. This practice is referred to "backing up only the core" (of the app). However it's possible to enable the backup of all data of this app with `yunohost app setting nextcloud backup_core_only -v 0`. Be careful though that your archive might get huge if there's too much data to be backuped...
+=======
+Some apps such as Nextcloud may be related to a large quantity of data which are not backuped by default. This practice is referred to "backing up only the core" (of the app). However it's possible to enable the backup of all data of this app with `yunohost app setting nextcloud backup_core_only -v ''`. Be careful though that your archive might get huge if there's too much data to be backuped...
+>>>>>>> upstream/master
 
 Downloading and uploading backups
 ---------------------------------
 
 After creating backup archives, it is possible to list and inspect them via the corresponding views in the webadmin, or via `yunohost backup list` and `yunohost backup info <archivename>` from the command line. By default, backups are stored in `/home/yunohost.backup/archives/`.
 
+<<<<<<< HEAD
 There is currently no straightfoward way to download or upload a backup archive.
 
 One solution consists in using `scp` (a program based on [`ssh`](/ssh)) to copy files between two machines via the command line. Hence, from a machine running Linux, you should be able to run the following to download a specific backup: 
+=======
+Currently, the most accessible way to download archives is to use the program FileZilla as explained in [this page](/filezilla).
+
+Alternatively, a solution can be to install Nextcloud or a similar app and configure it to be able to access files in `/home/yunohost.backup/archives/` from a web browser.
+
+Finally, you can use `scp` (a program based on [`ssh`](/ssh)) to copy files between two machines via the command line. Hence, from a machine running Linux, you should be able to run the following to download a specific backup: 
+>>>>>>> upstream/master
 
 ```bash
 scp admin@your.domain.tld:/home/yunohost.backup/archives/<archivename>.tar.gz ./
@@ -74,8 +86,6 @@ Similarly, you can upload a backup from a machine to your server with:
 ```bash
 scp /path/to/your/<archivename>.tar.gz admin@your.domain.tld:/home/yunohost.backup/archives/
 ```
-
-Alternatively, a solution can be to install Nextcloud or a similar app and configure it to be able to access files in `/home/yunohost.backup/archives/` from a web browser.
 
 Restoring backups
 -----------------
